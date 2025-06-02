@@ -5,7 +5,7 @@ import os, asyncio, sqlite3, time, datetime, streamlit as st, threading, json
 
 load_dotenv()
 set_tracing_disabled(True)
-
+os.environ["OPENAI_API_KEY"] = st.secrets['OPENAI_API_KEY']
 
 client = AsyncOpenAI(api_key=os.getenv("GEMINI_API_KEY"), base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
 agent = Agent(
