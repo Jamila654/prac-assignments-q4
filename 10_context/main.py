@@ -22,9 +22,9 @@ class UserInfo:
     color: str
 
 
-global_name = "ahmed"
+global_name = ""
 global_age = 10
-global_color = "blue"
+global_color = ""
 
 
 @function_tool
