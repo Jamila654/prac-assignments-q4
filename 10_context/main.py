@@ -68,7 +68,7 @@ async def run_without_context(name: str, age: int, color: str):
     
     agent = Agent(
         name="UserInfoAgentNoContext",
-        instructions="Call the get_user_info_no_context tool to show user details.",
+        # instructions="Call the get_user_info_no_context tool to show user details.",
         tools=[get_user_info_no_context],
         model=model
     )
