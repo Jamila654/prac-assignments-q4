@@ -1,4 +1,2 @@
 fastapi[standard]
-openai-agents
-pytest
-pytest-asyncio
+uvicorn

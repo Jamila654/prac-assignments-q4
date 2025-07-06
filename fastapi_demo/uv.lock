@@ -195,6 +195,7 @@ dependencies = [
     { name = "openai-agents" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
@@ -203,6 +204,7 @@ requires-dist = [
     { name = "openai-agents", specifier = ">=0.1.0" },
     { name = "pytest", specifier = ">=8.4.1" },
     { name = "pytest-asyncio", specifier = ">=1.0.0" },
+    { name = "uvicorn", specifier = ">=0.35.0" },
 ]
 
 [[package]]
