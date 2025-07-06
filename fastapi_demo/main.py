@@ -91,15 +91,16 @@
 
 # if __name__ == "__main__":
 #     uvicorn.run(app, host="0.0.0.0", port=8000)
+#type: ignore
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from datetime import datetime, timezone
 from uuid import uuid4
 from agents import Agent, Runner, function_tool, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig, ModelProvider
-from typing import cast
+from typing import cast, Union, Optional, List
 import os
 
-# Remove load_dotenv() - Vercel handles environment variables differently
+# Remove load_dotenv() - Vercel handles environment variables
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 if not gemini_api_key:
     raise ValueError("GEMINI_API_KEY environment variable is not set")
@@ -133,8 +134,8 @@ class Metadata(BaseModel):
 class Message(BaseModel):
     user_id: str
     text: str
-    metadata: Metadata | None = None
-    tags: list[str] | None = None
+    metadata: Optional[Metadata] = None
+    tags: Optional[List[str]] = None
 
 class Response(BaseModel):
     user_id: str
@@ -157,12 +158,12 @@ chat_agent = Agent(
 async def root():
     return {"message": "Welcome to the Chatbot API!"}
 
-@app.get("/api/users/{user_id}")
-async def get_user(user_id: str, role: str | None = None):
+@app.get("/users/{user_id}")
+async def get_user(user_id: str, role: Optional[str] = None):
     user_info = {"user_id": user_id, "role": role if role else "guest"}
     return user_info
 
-@app.post("/api/chat/", response_model=Response)
+@app.post("/chat/", response_model=Response)
 async def chat(message: Message):
     if not message.text.strip():
         raise HTTPException(status_code=400, detail="Message text cannot be empty")
@@ -179,4 +180,5 @@ async def chat(message: Message):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Agent processing failed: {str(e)}")
+
 
