@@ -1,7 +1,7 @@
 #type: ignore
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from uuid import uuid4
 from agents import Agent, Runner, function_tool, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig, ModelProvider
 from typing import cast
@@ -39,7 +39,7 @@ app = FastAPI(
 )
 
 class Metadata(BaseModel):
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     session_id: str = Field(default_factory=lambda: str(uuid4()))
 
 class Message(BaseModel):
@@ -56,7 +56,7 @@ class Response(BaseModel):
 @function_tool
 def get_current_time() -> str:
     """Returns the current time in UTC."""
-    return datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S UTC")
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 chat_agent = Agent(
     name="ChatAgent",
