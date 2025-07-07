@@ -129,7 +129,7 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://prac-assignments-q4.vercel.app", "http://localhost:3000"],
+    allow_origins=["https://prac-assignments-q4.vercel.app", "http://localhost:3000","https://agentic-ai-q4-git-main-jamila654s-projects.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
