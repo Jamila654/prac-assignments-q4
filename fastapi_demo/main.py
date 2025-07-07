@@ -99,6 +99,7 @@ from uuid import uuid4
 from agents import Agent, Runner, function_tool, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig, ModelProvider
 from typing import cast, Union, Optional, List
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 # Remove load_dotenv() - Vercel handles environment variables
 gemini_api_key = os.getenv("GEMINI_API_KEY")
@@ -125,6 +126,13 @@ app = FastAPI(
     title="FastAPI Demo",
     description="A simple FastAPI application with an agent and a runner.",
     version='0.1.0'
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://prac-assignments-q4.vercel.app", "http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class Metadata(BaseModel):
