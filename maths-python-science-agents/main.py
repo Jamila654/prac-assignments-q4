@@ -14,13 +14,15 @@ MODEL = "gemini-2.0-flash"
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 
+
 client = AsyncOpenAI(
     api_key=GEMINI_API_KEY,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
     
 )
+
 MATHS_INSTRUCTIONS ="""
-you are a maths agent your job is to answer user's maths related questions.If the user asks science related questions call the science agent.
+you are a maths agent your job is to answer user's maths related questionsllama-3.3-70b-versatile.If the user asks science related questions call the science agent.
 if the user asks unrelated questions say "I am a maths agent, I can only answer maths related questions. If you have a science question, please ask the science agent.if the user says bye say "good bye" and end the chat.
 """
 SCIENCE_INSTRUCTIONS = """
