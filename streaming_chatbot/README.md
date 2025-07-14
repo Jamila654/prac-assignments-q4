@@ -220,9 +220,9 @@ The backend is already deployed at `https://streaming1.vercel.app/`
 
 ## 🔗 Links
 
-- [Live Demo](https://your-demo-url.vercel.app)
+- [Live Demo](https://streamingchatbot.vercel.app/)
 - [FastAPI Backend](https://streaming1.vercel.app)
-- [GitHub Repository](https://github.com/yourusername/ecobot-chatbot)
+- [GitHub Repository](https://github.com/Jamila654/prac-assignments-q4/tree/main/streaming_chatbot)
 
 ---
 
