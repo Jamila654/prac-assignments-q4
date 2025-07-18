@@ -9,7 +9,7 @@ from agents import Runner, InputGuardrailTripwireTriggered, OutputGuardrailTripw
 import uvicorn
 from typing import Optional
 import json
-from openai.types.responses import ResponseTextDeltaEvent  # Assuming this import is needed for delta events
+from openai.types.responses import ResponseTextDeltaEvent
 
 
 app = FastAPI(
