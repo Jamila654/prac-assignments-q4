@@ -1,0 +1,12 @@
+[project]
+name = "email-communicator-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chainlit>=2.6.2",
+    "grpcio<1.72.1",
+    "openai-agents>=0.2.3",
+    "pydantic>=2.11.7",
+]
