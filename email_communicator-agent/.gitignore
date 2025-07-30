@@ -2,3 +2,5 @@
 #.env
 credentials.json
 echo "email_communicator-agent/*.pickle" >> .gitignore
+*.pickle
+credentials.json
