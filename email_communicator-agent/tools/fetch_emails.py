@@ -21,7 +21,7 @@ async def fetch_24_hours_email(email: str) -> str:
     """Fetch emails from the last 24 hours for the given Gmail address."""
     if not re.match(r'^[a-zA-Z0-9._%+-]+@(gmail|googlemail)\.com$', email):
         return f"Error: {email} is not a valid Gmail address. Please enter a Gmail address (e.g., user@gmail.com)."
-    SCOPES = Scopes
+    SCOPES = "https://www.googleapis.com/auth/gmail.modify"
     token_file = f"token_{email.replace('@', '_')}.pickle"
     creds = None
 
